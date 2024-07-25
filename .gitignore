@@ -1,0 +1,11 @@
+# Node modules directory
+node_modules/
+
+# Environment variables file
+.env
+
+# Log files
+*.log
+
+# Last known IP file
+last_ip.txt
