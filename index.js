@@ -6,6 +6,8 @@ require('dotenv').config();
 // GoDaddy API credentials
 const apiKey = process.env.GODADDY_API_KEY;
 const apiSecret = process.env.GODADDY_API_SECRET;
+// Interval for checking IP address (in milliseconds)
+const interval = process.env.INTERVAL || 300000; // Default is 5 minutes (300,000 ms)
 
 // Domains details
 const domains = process.env.DOMAINS.split(',');
@@ -82,3 +84,4 @@ const main = async () => {
 };
 
 main();
+setInterval(main, interval);
