@@ -28,7 +28,8 @@ const getCurrentIp = async () => {
 
 // Update the DNS record on GoDaddy
 const updateDnsRecord = async (domain, ip) => {
-  const url = `https://api.godaddy.com/v1/domains/${domain}/records/A/@`;
+  const url1 = `https://api.godaddy.com/v1/domains/${domain}/records/A/@`;
+  const url2 = `https://api.godaddy.com/v1/domains/${domain}/records/A/*`;
   const headers = {
     'Authorization': `sso-key ${apiKey}:${apiSecret}`,
     'Content-Type': 'application/json',
@@ -41,7 +42,8 @@ const updateDnsRecord = async (domain, ip) => {
   ];
 
   try {
-    await axios.put(url, data, { headers });
+    await axios.put(url1, data, { headers });
+    await axios.put(url2, data, { headers });
     console.log(`DNS record for ${domain} updated successfully to IP: ${ip}`);
   } catch (error) {
     console.error(`Error updating DNS record for ${domain}:`, error);
