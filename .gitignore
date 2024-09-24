@@ -8,4 +8,4 @@ node_modules/
 *.log
 
 # Last known IP file
-last_ip.txt
+last_ip.json
